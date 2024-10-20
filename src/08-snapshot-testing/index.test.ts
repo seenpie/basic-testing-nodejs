@@ -1,14 +1,31 @@
 // Uncomment the code below and write your tests
-// import { generateLinkedList } from './index';
+import { generateLinkedList } from './index';
+
+const elements = ['a', 'b', 'c'];
 
 describe('generateLinkedList', () => {
-  // Check match by expect(...).toStrictEqual(...)
   test('should generate linked list from values 1', () => {
-    // Write your test here
+    const expectedLinkedList = {
+      value: 'a',
+      next: {
+        value: 'b',
+        next: {
+          value: 'c',
+          next: {
+            value: null,
+            next: null,
+          },
+        },
+      },
+    };
+
+    const linkedList = generateLinkedList(elements);
+    expect(linkedList).toStrictEqual(expectedLinkedList);
   });
 
   // Check match by comparison with snapshot
   test('should generate linked list from values 2', () => {
-    // Write your test here
+    const linkedList = generateLinkedList(elements);
+    expect(linkedList).toMatchSnapshot();
   });
 });
